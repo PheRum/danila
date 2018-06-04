@@ -24,6 +24,8 @@ class UsersTableSeeder extends Seeder
             'remember_token' => str_random(10),
         ]);
 
-        factory(User::class, 1000)->create();
+        $limit = app()->runningUnitTests() ? 100 : 1000;
+
+        factory(User::class, $limit)->create();
     }
 }

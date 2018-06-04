@@ -13,3 +13,8 @@
 **email**: `admin@demo.app`
 
 **password**: `admin`
+
+
+## Tests
+
+`php vendor/bin/phpunit`

@@ -12,7 +12,9 @@ class StatsTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = factory(Stat::class, 1000)->make();
+        $limit = app()->runningUnitTests() ? 100 : 1000;
+
+        $data = factory(Stat::class, $limit)->make();
         $data = collect($data)->toArray();
 
         Stat::insertIgnore($data);
